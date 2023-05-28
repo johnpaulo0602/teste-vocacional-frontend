@@ -1,5 +1,16 @@
-export default function App() {
+import { Box, Text } from '@chakra-ui/react'
+
+export function App() {
   return (
-    <div>React project</div>
+    <Box
+      display={'flex'}
+      alignItems={'center'}
+      justifyContent={'center'}
+      height='100vh'
+    >
+      <Text
+        fontSize={'28'}
+      >Teste vocacional</Text>
+    </Box>
   )
 }
