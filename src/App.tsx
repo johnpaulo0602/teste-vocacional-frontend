@@ -1,16 +1,19 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react';
+import { QuestionsPage } from './pages/questions/questions.page';
+import { Home } from './pages/home';
 
 export function App() {
-  return (
-    <Box
-      display={'flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      height='100vh'
-    >
-      <Text
-        fontSize={'28'}
-      >Teste vocacional</Text>
-    </Box>
-  )
+    return (
+            <Flex
+                    alignItems={ 'center' }
+                    justifyContent={ 'center' }
+                    height="100vh"
+                    paddingTop={ '20px' }
+                    marginBottom={ '20px' }
+            >
+                <Flex maxW={ '1024px' }>
+                    <Home/>
+                </Flex>
+            </Flex>
+    );
 }
