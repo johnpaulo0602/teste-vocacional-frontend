@@ -1,6 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { QuestionsPage } from './pages/questions/questions.page';
-import { Home } from './pages/home';
+import { ResultTestPage } from './pages/result-test/result-test.page';
 
 export function App() {
     return (
@@ -12,8 +11,9 @@ export function App() {
                     marginBottom={ '20px' }
             >
                 <Flex maxW={ '1024px' }>
-                    {/*<Home/>*/}
-                    <QuestionsPage/>
+                    {/*<Home/>*/ }
+                    {/*<QuestionsPage/>*/ }
+                    <ResultTestPage/>
                 </Flex>
             </Flex>
     );
