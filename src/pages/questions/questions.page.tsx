@@ -3,6 +3,13 @@ import { QuestionCardComponent } from '../../components/question-card/question-c
 
 export function QuestionsPage(){
     return(
-         <h1>tset</h1>
+         <Flex
+                 alignItems={'center'}
+                 justifyContent={'center'}
+                 width={'720px'}
+                 height={'400px'}
+         >
+             <QuestionCardComponent/>
+         </Flex>
     )
 }

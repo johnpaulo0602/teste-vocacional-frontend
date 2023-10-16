@@ -12,7 +12,8 @@ export function App() {
                     marginBottom={ '20px' }
             >
                 <Flex maxW={ '1024px' }>
-                    <Home/>
+                    {/*<Home/>*/}
+                    <QuestionsPage/>
                 </Flex>
             </Flex>
     );
