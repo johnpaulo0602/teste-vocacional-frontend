@@ -5,78 +5,14 @@ import { axiosInstance } from '../../services/api-axios.service';
 import { AppResponse, ListResponse } from '../../interface/requests.inteface';
 import { ResponseQuestions } from '../../interface/response.interface';
 
-export function QuestionCardComponent() {
-    const [questions, setQuestions] = useState<Question[]>([])
+interface QuestionCardProps {
+    questionA: Question | undefined;
+    questionB: Question | undefined;
+    counterGroup: number;
+    sendResponse: (question?:Question) => {}
+}
 
-    const [currentGroup, setCurrentGroup] = useState<Group>(Group.GROUP_I)
-    const [numberGroup, setNumberGroup] = useState<number>(1)
-
-    const [counterQuestion, setCounterQuestion] = useState<number>(1)
-
-    const [alternativeA, setAlternativeA] = useState<Question>()
-    const [alternativeB, setAlternativeB] = useState<Question>()
-
-    useEffect( () => {
-       loadQuestions()
-    }, [currentGroup] );
-
-    const loadQuestions = () => {
-        axiosInstance.get(`/questions/${currentGroup }` )
-                .then(axiosResponse => {
-                    const {success: {response:{items}}} = axiosResponse.data as AppResponse<ListResponse<Question>>
-
-                    setQuestions(items)
-
-                    if(questions.length){
-                        const filtered = questions.filter(question => question.questionGroup === counterQuestion)
-
-                        setAlternativeA(filtered[0])
-                        setAlternativeB(filtered[1])
-                    }
-
-                })
-                .catch(error => {
-                    throw new Error( error.message );
-                })
-
-    }
-
-    const sendResponse = (question?: Question ) => {
-        let participant: any = localStorage.getItem('participant')
-
-        if(participant) {
-            participant = JSON.parse(participant)
-        }
-
-        console.log(participant);
-
-        let data: Omit<ResponseQuestions, '_id'> = {
-            group: currentGroup,
-            questionGroup: counterQuestion,
-            response: TypeResponse.A,
-            sessionHash: ''
-        }
-
-        if(!question) {
-            data.response = TypeResponse.WITHOUT_RESPONSE;
-        } else {
-            data.response = question.questionGroupOption === 'a' ? TypeResponse.A : TypeResponse.B
-        }
-
-        axiosInstance.post('/response-question/register', data).then(() => {
-            if(counterQuestion >= 12) {
-                setCounterQuestion(0);
-                setNumberGroup(numberGroup + 1)
-            }
-
-            setCounterQuestion(counterQuestion + 1)
-
-
-        }).catch(error => {
-            throw new Error(error.message)
-        })
-    }
-
+export function QuestionCardComponent( props: QuestionCardProps ) {
     return (
             <Flex
                     position={ 'relative' }
@@ -98,7 +34,7 @@ export function QuestionCardComponent() {
                         paddingY={ '10px' }
                         borderRadius={ '5px' }
                 >
-                    Grupo 1/5
+                    Grupo { props.counterGroup }/5
                 </Box>
                 <Flex
                         direction={ 'column' }
@@ -117,10 +53,10 @@ export function QuestionCardComponent() {
                                 flexDirection={ 'column' }
                                 alignItems={ 'center' }
                                 cursor={ 'pointer' }
-                                onClick={() => sendResponse(alternativeA)}
+                                onClick={ () => props.sendResponse(props.questionA)}
                         >
                             <Text fontSize={ '52px' }>🤩</Text>
-                            <Text overflowWrap={ 'initial' }>{alternativeA && alternativeA.statement}</Text>
+                            <Text overflowWrap={ 'initial' }>{ props.questionA?.statement || '' }</Text>
                         </GridItem>
 
                         <GridItem
@@ -128,7 +64,7 @@ export function QuestionCardComponent() {
                                 flexDirection={ 'column' }
                                 alignItems={ 'center' }
                                 cursor={ 'pointer' }
-                                onClick={() => sendResponse()}
+                                onClick={ () => props.sendResponse() }
                         >
                             <Text fontSize={ '52px' }>🫤</Text>
                             <Text>Tanto faz</Text>
@@ -139,10 +75,10 @@ export function QuestionCardComponent() {
                                 flexDirection={ 'column' }
                                 alignItems={ 'center' }
                                 cursor={ 'pointer' }
-                                onClick={() => sendResponse(alternativeB)}
+                                onClick={ () => props.sendResponse(props.questionB)}
                         >
                             <Text fontSize={ '52px' }>🤩</Text>
-                            <Text>{alternativeB && alternativeB.statement}</Text>
+                            <Text>{ props.questionB?.statement || '' }</Text>
                         </GridItem>
                     </Grid>
                 </Flex>
