@@ -1,8 +1,11 @@
 import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
 import { ProfessionCardComponent } from '../components/profession-card/profession-card.component';
 import { RegisterUserModalComponent } from '../components/register-user-modal/register-user-modal.component';
+import { useState } from 'react';
 
 export function Home() {
+    const [isOpen, setIsOpen] = useState(false)
+
   return (
     <Flex
             flexDirection={'column'}
@@ -21,7 +24,9 @@ export function Home() {
                     Descubra as opcoes que a Unidesc oferece para voce brilhar no mercado de trabalho
                 </Text>
 
-                <Button background={'linear-gradient(268.31deg, #FF675C 2.54%, #FD3078 97.92%)'}>
+                <Button
+                        onClick={() => {setIsOpen(true)}}
+                        background={'linear-gradient(268.31deg, #FF675C 2.54%, #FD3078 97.92%)'}>
                     Comecar o teste Agora!
                 </Button>
             </Flex>
@@ -47,10 +52,10 @@ export function Home() {
             </Flex>
 
             <Flex alignItems={'center'} justifyContent={'center'}>
-                <Button>Fazer teste agora!</Button>
+                <Button onClick={() => {setIsOpen(true)}}>Fazer teste agora!</Button>
             </Flex>
         </Flex>
-        <RegisterUserModalComponent/>
+        <RegisterUserModalComponent isOpen={isOpen}/>
     </Flex>
   )
 }

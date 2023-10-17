@@ -10,7 +10,7 @@ export const Router = createBrowserRouter( [
         element: <Home/>
     },
     {
-        path: '/questions',
+        path: 'questions',
         element: <QuestionsPage/>
     },
     {
