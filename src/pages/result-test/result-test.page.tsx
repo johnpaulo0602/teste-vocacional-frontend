@@ -57,7 +57,7 @@ export function ResultTestPage() {
     };
 
     const getParticipant = (): ParticipantSession => {
-        const participant = localStorage.getItem( 'participant' );
+        const participant = localStorage.getItem( 'participant' ) || ''
 
         return JSON.parse( participant );
     };
@@ -67,6 +67,8 @@ export function ResultTestPage() {
         if ( value >= 4 && value <= 6 ) return 50;
         if ( value >= 7 && value <= 9 ) return 75;
         if ( value >= 10 && value <= 12 ) return 100;
+
+        return 0
     };
 
     const goToHome = () => {

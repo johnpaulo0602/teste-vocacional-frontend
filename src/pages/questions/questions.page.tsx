@@ -77,7 +77,7 @@ export function QuestionsPage() {
     };
 
     const getParticipant = (): ParticipantSession => {
-        const participant = localStorage.getItem( 'participant' );
+        const participant = localStorage.getItem( 'participant' ) || ''
 
         return JSON.parse( participant );
     };

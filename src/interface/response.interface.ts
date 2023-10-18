@@ -21,7 +21,7 @@ export interface ResponseQuestions {
 }
 
 export interface ResponseFinal {
-    [key: Group]: {
+    [key: string]: {
         counterResponse: number;
     };
 }

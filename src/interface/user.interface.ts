@@ -1,7 +1,7 @@
 import { Session } from './session.interface';
 
 export interface UserCommon {
-    _id: ObjectId;
+    _id: string;
     name: string;
     email: string;
     typeUser?: TypeUser;

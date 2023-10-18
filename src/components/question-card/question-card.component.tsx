@@ -9,7 +9,7 @@ interface QuestionCardProps {
     questionA: Question | undefined;
     questionB: Question | undefined;
     counterGroup: number;
-    sendResponse: (question?:Question) => {}
+    sendResponse: (question?:Question) => void
 }
 
 export function QuestionCardComponent( props: QuestionCardProps ) {

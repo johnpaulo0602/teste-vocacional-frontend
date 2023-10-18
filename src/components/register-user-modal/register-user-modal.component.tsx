@@ -9,7 +9,7 @@ import { ParticipantSession } from '../../interface/user.interface';
 
 interface RegisterModalProps {
     isOpen: boolean;
-    closeModal: () => {}
+    closeModal: () => void
 }
 
 export function RegisterUserModalComponent(props: RegisterModalProps) {
