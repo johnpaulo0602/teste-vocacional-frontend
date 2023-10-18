@@ -26,7 +26,7 @@ export function ResultTestPage() {
     useEffect( () => {
         const participant = getParticipant();
 
-        axiosInstance.get<AppResponse<ListResponse<ResponseFinal>>>( `/response-question/responses/session/${ participant.sessionHash }/final-result` )
+        axiosInstance.get<AppResponse<ListResponse<ResponseFinal>>>( `/response-question/responses/session/${ participant.sessionHash || '' }/final-result` )
                 .then( ( axiosResponse ) => {
                     const { success: { response: { items: [ response ] } } } = axiosResponse.data as AppResponse<ListResponse<ResponseFinal>>;
 

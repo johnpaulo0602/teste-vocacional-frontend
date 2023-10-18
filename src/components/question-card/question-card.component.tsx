@@ -44,7 +44,7 @@ export function QuestionCardComponent( props: QuestionCardProps ) {
 
                 >
                     <Box borderBottom={ '1px' } paddingY={ '30px' } width={ '100%' }>
-                        <Text fontWeight={ 'bold' } fontSize={ '24px' } textAlign={ 'center' }>Voce prefere?</Text>
+                        <Text fontWeight={ 'bold' } fontSize={ '24px' } textAlign={ 'center' }>Você prefere?</Text>
                     </Box>
                     <Grid marginTop={ '30px' } gridTemplateColumns={ '1fr 1fr 1fr' } gridGap={ '60px' }
                           justifyContent={ 'space-between' }>

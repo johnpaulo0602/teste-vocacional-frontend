@@ -15,17 +15,16 @@ export function Home() {
             <Flex direction={'column'} justifyContent={'center'} gap={'15px'} width={'50%'}>
                 <Image src={'src/assets/icons/logo-icon.svg'} maxWidth={'360px'}/>
                 <Text fontSize={'30px'} fontWeight={'bold'} margin={0} padding={0}>
-                    De match com a carreira
-                    <br/> dos seus sonhos!
+                    Dê match com a carreira <br/> dos seus sonhos!
                 </Text>
                 <Text>
-                    Escolher a profissao certa nunca foi tao facil e divertido. Faca nosso teste vocacional
-                    gratis e deixe a paixao pelos estudos te guiar na direcao de um futuro promissor.
-                    Descubra as opcoes que a Unidesc oferece para voce brilhar no mercado de trabalho
+                    Escolher a profissão certa nunca foi tão fácil e divertido.
+                    Faça nosso teste vocacional grátis e deixe a paixão pelos estudos te guiar na direção de um futuro promissor.
+                    Descubra as opções que a Unidesc oferece para você brilhar no mercado de trabalho.
                 </Text>
 
                 <Button onClick={() => {setIsOpen(true)}}>
-                    Comecar o teste Agora!
+                    Começar o teste agora!
                 </Button>
             </Flex>
             {/*<Image src={'src/assets/images/estudante-home.svg'} maxHeight={'600px'}/>*/}
@@ -33,19 +32,18 @@ export function Home() {
 
         <Flex direction={'column'} gap={'30px'}>
             <Text textAlign={'center'} fontSize={'30px'} fontWeight={'bold'}>
-                Conheca as areas que combinam com voce!
+                Conheça as áreas que combinam com você!
             </Text>
             <Text textAlign={'center'} paddingX={'20px'}>
-                Encontre o caminho que mais combina com voce! conheca as cinco areas disponiveis
-                para o teste vocacional e descrubra onde suas habilidades e paixoes se encaixam
-                melhor.
+                Encontre o caminho que mais combina com você! Conheça as cinco áreas disponíveis para o
+                teste vocacional e descubra onde suas habilidades e paixões se encaixam melhor.
             </Text>
 
             <Flex flexWrap={'wrap'} gap={'60px'} justifyContent={'center'}>
-                <ProfessionCardComponent title={'Tecnologicas'} imgUrl={'src/assets/icons/thecnology-icon.svg'}/>
-                <ProfessionCardComponent title={'Biologas'} imgUrl={'src/assets/icons/biology-icon.svg'}/>
+                <ProfessionCardComponent title={'Tecnológicas'} imgUrl={'src/assets/icons/thecnology-icon.svg'}/>
+                <ProfessionCardComponent title={'Biológicas'} imgUrl={'src/assets/icons/biology-icon.svg'}/>
                 <ProfessionCardComponent title={'Humanas'} imgUrl={'src/assets/icons/human-icon.svg'}/>
-                <ProfessionCardComponent title={'Comunicacao'} imgUrl={'src/assets/icons/comunication.svg'}/>
+                <ProfessionCardComponent title={'Comunicação'} imgUrl={'src/assets/icons/comunication.svg'}/>
                 <ProfessionCardComponent title={'Artes'} imgUrl={'src/assets/icons/arts-icon.svg'}/>
             </Flex>
 
