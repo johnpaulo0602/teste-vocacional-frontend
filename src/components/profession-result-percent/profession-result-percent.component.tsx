@@ -11,7 +11,7 @@ export function ProfessionResultPercentComponent ({iconUrl, percentage, label}: 
             >
                 <Flex
                         height={'200px'}
-                        width={'40%'}
+                        width={'50px'}
                         background={'#F0F0F0'}
                         borderRadius={'5px'}
                 >
@@ -32,7 +32,7 @@ export function ProfessionResultPercentComponent ({iconUrl, percentage, label}: 
                         color={percentage <= 26 ? '#fff' : '#000' }
                         bottom={'100px'}
                         fontWeight={'bold'}
-                >90%</Text>
+                >{percentage}%</Text>
                 <Image src={iconUrl} width={'40px'}/>
                 <Text>{label}</Text>
             </Flex>

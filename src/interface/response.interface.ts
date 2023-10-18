@@ -19,3 +19,9 @@ export interface ResponseQuestions {
      */
     questionGroup: number;
 }
+
+export interface ResponseFinal {
+    [key: Group]: {
+        counterResponse: number;
+    };
+}
