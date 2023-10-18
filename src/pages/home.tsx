@@ -12,7 +12,7 @@ export function Home() {
       height='100vh'
     >
         <Flex>
-            <Flex direction={'column'} justifyContent={'center'} gap={'15px'}>
+            <Flex direction={'column'} justifyContent={'center'} gap={'15px'} width={'50%'}>
                 <Image src={'src/assets/icons/logo-icon.svg'} maxWidth={'360px'}/>
                 <Text fontSize={'30px'} fontWeight={'bold'} margin={0} padding={0}>
                     De match com a carreira
@@ -24,13 +24,11 @@ export function Home() {
                     Descubra as opcoes que a Unidesc oferece para voce brilhar no mercado de trabalho
                 </Text>
 
-                <Button
-                        onClick={() => {setIsOpen(true)}}
-                        background={'linear-gradient(268.31deg, #FF675C 2.54%, #FD3078 97.92%)'}>
+                <Button onClick={() => {setIsOpen(true)}}>
                     Comecar o teste Agora!
                 </Button>
             </Flex>
-            <Image src={'src/assets/images/estudante-home.svg'} maxHeight={'600px'}/>
+            {/*<Image src={'src/assets/images/estudante-home.svg'} maxHeight={'600px'}/>*/}
         </Flex>
 
         <Flex direction={'column'} gap={'30px'}>
@@ -55,7 +53,7 @@ export function Home() {
                 <Button onClick={() => {setIsOpen(true)}}>Fazer teste agora!</Button>
             </Flex>
         </Flex>
-        <RegisterUserModalComponent isOpen={isOpen}/>
+        <RegisterUserModalComponent isOpen={isOpen} closeModal={() => setIsOpen(false)}/>
     </Flex>
   )
 }

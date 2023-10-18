@@ -9,14 +9,14 @@ import { ParticipantSession } from '../../interface/user.interface';
 
 interface RegisterModalProps {
     isOpen: boolean;
+    closeModal: () => {}
 }
 
-export function RegisterUserModalComponent( { isOpen }: RegisterModalProps ) {
+export function RegisterUserModalComponent(props: RegisterModalProps) {
     const [ name, setName ] = useState( '' );
     const [ email, setEmail ] = useState( '' );
     const [ phone, setPhone ] = useState( '' );
     const navigate = useNavigate();
-
 
     const submit = async () => {
         const data = {
@@ -37,8 +37,7 @@ export function RegisterUserModalComponent( { isOpen }: RegisterModalProps ) {
     };
 
     return (
-            <Modal isOpen={ true } onClose={ () => {
-            } } size={ '4xl' }>
+            <Modal isOpen={ props.isOpen } onClose={ props.closeModal } size={ '4xl' }>
                 <ModalOverlay/>
                 <ModalContent>
                     <ModalCloseButton/>
