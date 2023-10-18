@@ -82,12 +82,13 @@ export function QuestionCardComponent( props: QuestionCardProps ) {
                         </GridItem>
                     </Grid>
                 </Flex>
-                <Box position={ 'absolute' } width={ '110%' } bottom={ '-5' }>
-                    <Flex justifyContent={ 'space-between' }>
-                        <Image src={ 'src/assets/icons/back-button-icon.svg' } cursor={ 'pointer' }/>
-                        <Image src={ 'src/assets/icons/tip-button-icon.svg' } cursor={ 'pointer' }/>
-                    </Flex>
-                </Box>
+                {/*@TODO: check to function from buttons*/}
+                {/*<Box position={ 'absolute' } width={ '110%' } bottom={ '-5' }>*/}
+                {/*    <Flex justifyContent={ 'space-between' }>*/}
+                {/*        <Image src={ 'src/assets/icons/back-button-icon.svg' } cursor={ 'pointer' }/>*/}
+                {/*        <Image src={ 'src/assets/icons/tip-button-icon.svg' } cursor={ 'pointer' }/>*/}
+                {/*    </Flex>*/}
+                {/*</Box>*/}
             </Flex>
     );
 }

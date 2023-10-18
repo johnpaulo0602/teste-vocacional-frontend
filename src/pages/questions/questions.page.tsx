@@ -134,7 +134,6 @@ export function QuestionsPage() {
                     width={ '720px' }
                     height={ '400px' }
             >
-                { numberGroup }
                 <QuestionCardComponent
                         questionA={ questionA }
                         questionB={ questionB }
