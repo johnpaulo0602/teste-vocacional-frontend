@@ -2,6 +2,12 @@ import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
 import { ProfessionCardComponent } from '../components/profession-card/profession-card.component';
 import { RegisterUserModalComponent } from '../components/register-user-modal/register-user-modal.component';
 import { useState } from 'react';
+import logoApplication from '../assets/icons/logo-icon.svg'
+import technologyIcon from '../assets/icons/thecnology-icon.svg'
+import biologyIcon from '../assets/icons/biology-icon.svg'
+import humanIcon from '../assets/icons/human-icon.svg'
+import communicationIcon from '../assets/icons/comunication.svg'
+import artIcon from '../assets/icons/arts-icon.svg'
 
 export function Home() {
     const [isOpen, setIsOpen] = useState(false)
@@ -13,7 +19,7 @@ export function Home() {
     >
         <Flex>
             <Flex direction={'column'} justifyContent={'center'} gap={'15px'} width={'50%'}>
-                <Image src={'src/assets/icons/logo-icon.svg'} maxWidth={'360px'}/>
+                <Image src={logoApplication} maxWidth={'360px'}/>
                 <Text fontSize={'30px'} fontWeight={'bold'} margin={0} padding={0}>
                     Dê match com a carreira <br/> dos seus sonhos!
                 </Text>
@@ -40,11 +46,11 @@ export function Home() {
             </Text>
 
             <Flex flexWrap={'wrap'} gap={'60px'} justifyContent={'center'}>
-                <ProfessionCardComponent title={'Tecnológicas'} imgUrl={'src/assets/icons/thecnology-icon.svg'}/>
-                <ProfessionCardComponent title={'Biológicas'} imgUrl={'src/assets/icons/biology-icon.svg'}/>
-                <ProfessionCardComponent title={'Humanas'} imgUrl={'src/assets/icons/human-icon.svg'}/>
-                <ProfessionCardComponent title={'Comunicação'} imgUrl={'src/assets/icons/comunication.svg'}/>
-                <ProfessionCardComponent title={'Artes'} imgUrl={'src/assets/icons/arts-icon.svg'}/>
+                <ProfessionCardComponent title={'Tecnológicas'} imgUrl={technologyIcon}/>
+                <ProfessionCardComponent title={'Biológicas'} imgUrl={biologyIcon}/>
+                <ProfessionCardComponent title={'Humanas'} imgUrl={humanIcon}/>
+                <ProfessionCardComponent title={'Comunicação'} imgUrl={communicationIcon}/>
+                <ProfessionCardComponent title={'Artes'} imgUrl={artIcon}/>
             </Flex>
 
             <Flex alignItems={'center'} justifyContent={'center'}>
