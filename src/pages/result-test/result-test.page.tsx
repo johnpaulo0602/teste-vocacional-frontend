@@ -11,6 +11,15 @@ import { Group } from '../../interface/question.interface';
 import { CareerMock } from '../../mock/career.mock';
 import { useNavigate } from 'react-router-dom';
 
+import trophyResult from '../../assets/images/trofeu-result.svg'
+import technologyIcon from '../../assets/icons/thecnology-icon.svg'
+import biologyIcon from '../../assets/icons/biology-icon.svg'
+import humanIcon from '../../assets/icons/human-icon.svg'
+import communicationIcon from '../../assets/icons/comunication.svg'
+import artsIcon from '../../assets/icons/arts-icon.svg'
+import certificate from '../../assets/images/certificate.svg'
+import pencilRocket from '../../assets/images/pencil-rocket.svg'
+
 export function ResultTestPage() {
     const [ technologyNote, setTechnologyNote ] = useState<number>( 0 );
     const [ biologicalNote, setBiologicalNote ] = useState<number>( 0 );
@@ -88,7 +97,7 @@ export function ResultTestPage() {
                     </Text>
                 </Flex>
                 <Flex justifyContent={ 'center' } justifyItems={ 'center' } alignItems={ 'center' }>
-                    <Image src={ 'src/assets/images/trofeu-result.svg' }/>
+                    <Image src={ trophyResult }/>
                     {/*<Flex>*/ }
                     {/*    <List display={ 'flex' } flexDirection={ 'column' } gap={ '15px' }>*/ }
                     {/*        <ListItem display={ 'flex' } gap={ '10px' } alignItems={ 'center' }>*/ }
@@ -119,35 +128,35 @@ export function ResultTestPage() {
                               borderRadius={ '5px' }>
                             <ProfessionResultPercentComponent
                                     percentage={ technologyNote }
-                                    iconUrl={ 'src/assets/icons/thecnology-icon.svg' }
+                                    iconUrl={ technologyIcon }
                                     label={ 'Tecnologia' }
                             /><ProfessionResultPercentComponent
                                 percentage={ biologicalNote }
-                                iconUrl={ 'src/assets/icons/biology-icon.svg' }
+                                iconUrl={ biologyIcon }
                                 label={ 'Biologicas' }
                         /><ProfessionResultPercentComponent
                                 percentage={ humanNote }
-                                iconUrl={ 'src/assets/icons/human-icon.svg' }
+                                iconUrl={ humanIcon }
                                 label={ 'Humanas' }
                         /><ProfessionResultPercentComponent
                                 percentage={ communicationNote }
-                                iconUrl={ 'src/assets/icons/comunication.svg' }
+                                iconUrl={ communicationIcon }
                                 label={ 'Comunicação' }
                         /><ProfessionResultPercentComponent
                                 percentage={ artNote }
-                                iconUrl={ 'src/assets/icons/arts-icon.svg' }
+                                iconUrl={ artsIcon }
                                 label={ 'Artes' }
                         />
 
                         </Flex>
-                        <Image src={ 'src/assets/images/pencil-rocket.svg' }/>
+                        <Image src={ pencilRocket }/>
                     </Flex>
                 </Flex>
 
                 <Flex direction={ 'column' } fontWeight={ 'bold' } gap={ '50px' }>
                     <Text fontSize={ '24px' }>Veja os cursos que dão match com você!</Text>
                     <Flex>
-                        <Image src={ 'src/assets/images/certificate.svg' }/>
+                        <Image src={ certificate }/>
                         <Flex gap={ '40px' }>
                             <Flex
                                     direction={ 'column' }
