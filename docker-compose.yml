@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  match-career:
+    container_name: match-career-react
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    command: 'npm run preview'
+    ports:
+      - '5000:5000'
