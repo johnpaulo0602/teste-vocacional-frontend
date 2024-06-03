@@ -1,17 +1,14 @@
 import { ChakraProvider, extendTheme, Flex, StyleFunctionProps } from '@chakra-ui/react';
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
-import { Router } from './router'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import { Router } from './router';
 
-/**
- * @TODO: pass theme to another file
- */
 const theme = extendTheme({
     styles: {
         global: (props: StyleFunctionProps) => ({
             body: {
-                fontFamily: ['poppins']
+                fontFamily: 'Poppins',
             }
         })
     }
@@ -21,16 +18,14 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
         <Flex
-                alignItems={ 'center' }
-                justifyContent={ 'center' }
-                height="100vh"
-                paddingTop={ '20px' }
-                marginBottom={ '20px' }
+                flexDirection="column"
+                minHeight="100vh"
+                justify="space-between"
         >
-            <Flex maxW={ '1024px' }>
+            {/* <Flex w={'full'} margin="0 auto" flexDirection="column" flex="1"> */}
                 <RouterProvider router={Router} />
-            </Flex>
+            {/* </Flex> */}
         </Flex>
     </ChakraProvider>
   </React.StrictMode>
-)
+);
