@@ -49,6 +49,8 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
                                 color={ '#fff' }
                                 maxWidth={ '50%' }
                                 gap={ '19px' }
+                                roundedBottomLeft={'base'}
+                                roundedTopLeft={'base'}
                         >
                             <Flex direction={ 'column' } gap={ '6px' }>
                                 <Text fontWeight={ 'bold' } fontSize={ '24px' }>Como funciona o teste vocacional?</Text>
@@ -81,17 +83,13 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
                             </Flex>
                         </Flex>
                         <Flex direction={ 'column' } padding={ '20px' } gap={ '15px' }>
-                            <Text fontWeight={ '500' } fontSize={ '24px' }>
-                                FALTA POUCO...
-                                <br/>
-                                A resposta para sua carreira está a um passo de distância!
-                            </Text>
-
+                            <Text fontWeight={ 'bold' } fontSize={ '20px' }>FALTA POUCO...</Text>
+                            <Text>A resposta para sua carreira está a um passo de distância!</Text>
                             <label>
                                 <Flex direction={ 'column' } gap={ '6px' }>
                                     <Text>Nome completo</Text>
                                     <Input
-                                            onChange={ ( event ) => setName( event.target.value ) }
+                                        onChange={ ( event ) => setName( event.target.value ) }
                                     />
                                 </Flex>
                             </label>
@@ -100,7 +98,7 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
                                 <Flex direction={ 'column' } gap={ '6px' }>
                                     <Text>E-mail</Text>
                                     <Input
-                                            onChange={ ( event ) => setEmail( event.target.value ) }
+                                        onChange={ ( event ) => setEmail( event.target.value ) }
                                     />
                                 </Flex>
                             </label>
@@ -109,7 +107,7 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
                                 <Flex direction={ 'column' } gap={ '6px' }>
                                     <Text>Telefone</Text>
                                     <Input
-                                            onChange={ ( event ) => setPhone( event.target.value ) }
+                                        onChange={ ( event ) => setPhone( event.target.value ) }
                                     />
                                 </Flex>
                             </label>
@@ -122,8 +120,17 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
                             {/*</label>*/ }
 
                             <Button
-                                    onClick={ () => submit() }
-                            > Começar o teste agora! </Button>
+                                onClick={ () => submit() }
+                                borderRadius='8px'
+                                background='linear-gradient(268deg, #FF675C 2.54%, #FD3078 97.92%)'
+                                textColor={'White'}
+                                width={'60%'}
+                                _hover={{
+                                    background: 'linear-gradient(268deg, #FD3078 2.54%, #FF675C 97.92%)'
+                                }}
+                            >
+                                Começar o teste agora!
+                            </Button>
                         </Flex>
 
                     </Flex>
