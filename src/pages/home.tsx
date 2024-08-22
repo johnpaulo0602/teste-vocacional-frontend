@@ -9,6 +9,26 @@ import biologyIcon from '../assets/icons/biology-icon.svg'
 import humanIcon from '../assets/icons/human-icon.svg'
 import communicationIcon from '../assets/icons/comunication.svg'
 import artIcon from '../assets/icons/arts-icon.svg'
+import { keyframes } from '@chakra-ui/react';
+
+// animações
+const floatAnimation1 = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+`;
+
+const floatAnimation2 = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+`;
+
+const floatAnimation3 = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+`;
 
 export function Home() {
     const [isOpen, setIsOpen] = useState(false)
@@ -63,6 +83,7 @@ export function Home() {
                                 position={'absolute'}
                                 top={'0'}
                                 left={'44rem'}
+                                animation={`${floatAnimation1} 3s ease-in-out infinite`}
                             />
                             <Image
                                 src={'/src/assets/images/certificate.png'}
@@ -71,6 +92,7 @@ export function Home() {
                                 position={'absolute'}
                                 top={'-6rem'}
                                 left={'66rem'}
+                                animation={`${floatAnimation2} 4s ease-in-out infinite`}
                             />
                             <Image
                                 src={'/src/assets/images/learning-online.png'}
@@ -79,6 +101,7 @@ export function Home() {
                                 position={'absolute'}
                                 top={'18rem'}
                                 left={'46rem'}
+                                animation={`${floatAnimation3} 2.5s ease-in-out infinite`}
                             />
                         </Flex>
                     </Flex>
