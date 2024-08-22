@@ -128,18 +128,20 @@ export function QuestionsPage() {
     };
 
     return (
-            <Flex
-                    alignItems={ 'center' }
-                    justifyContent={ 'center' }
-                    width={ '720px' }
-                    height={ '400px' }
-            >
-                <QuestionCardComponent
-                        questionA={ questionA }
-                        questionB={ questionB }
-                        counterGroup={ counterGroup }
-                        sendResponse={ sendResponse }
-                />
-            </Flex>
+        <Flex
+            position="absolute" // Altera a posição para absoluta
+            top="50%"           // Coloca o contêiner 50% a partir do topo
+            left="50%"          // Coloca o contêiner 50% a partir da esquerda
+            transform="translate(-50%, -50%)" // Move o contêiner para que fique centralizado
+            width="720px"       // Mantém a largura fixa
+            height="400px"      // Mantém a altura fixa
+        >
+            <QuestionCardComponent
+                questionA={ questionA }
+                questionB={ questionB }
+                counterGroup={ counterGroup }
+                sendResponse={ sendResponse }
+            />
+        </Flex>
     );
 }

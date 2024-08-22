@@ -4,6 +4,8 @@ import { Group, Question, TypeResponse } from '../../interface/question.interfac
 import { axiosInstance } from '../../services/api-axios.service';
 import { AppResponse, ListResponse } from '../../interface/requests.inteface';
 import { ResponseQuestions } from '../../interface/response.interface';
+import starIcon from '../../assets/icons/reshot-icon-love.svg';
+import mehIcon from '../../assets/icons/reshot-icon-neutra.svg';
 
 interface QuestionCardProps {
     questionA: Question | undefined;
@@ -55,8 +57,8 @@ export function QuestionCardComponent( props: QuestionCardProps ) {
                                 cursor={ 'pointer' }
                                 onClick={ () => props.sendResponse(props.questionA)}
                         >
-                            <Text fontSize={ '52px' }>🤩</Text>
-                            <Text overflowWrap={ 'initial' }>{ props.questionA?.statement || '' }</Text>
+                            <Image src={starIcon} alt="Star Icon" boxSize="52px" />
+                            <Text textAlign={'center'} overflowWrap={ 'initial' }>{ props.questionA?.statement || '' }</Text>
                         </GridItem>
 
                         <GridItem
@@ -66,8 +68,8 @@ export function QuestionCardComponent( props: QuestionCardProps ) {
                                 cursor={ 'pointer' }
                                 onClick={ () => props.sendResponse() }
                         >
-                            <Text fontSize={ '52px' }>🫤</Text>
-                            <Text>Tanto faz</Text>
+                            <Image src={mehIcon} alt="Star Icon" boxSize="52px" />
+                            <Text textAlign={'center'}>Tanto faz</Text>
                         </GridItem>
 
                         <GridItem
@@ -77,8 +79,8 @@ export function QuestionCardComponent( props: QuestionCardProps ) {
                                 cursor={ 'pointer' }
                                 onClick={ () => props.sendResponse(props.questionB)}
                         >
-                            <Text fontSize={ '52px' }>🤩</Text>
-                            <Text>{ props.questionB?.statement || '' }</Text>
+                            <Image src={starIcon} alt="Star Icon" boxSize="52px" />
+                            <Text textAlign={'center'}>{ props.questionB?.statement || '' }</Text>
                         </GridItem>
                     </Grid>
                 </Flex>
