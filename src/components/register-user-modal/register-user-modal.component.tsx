@@ -1,4 +1,4 @@
-import { Button, Flex, Input, Modal, ModalCloseButton, ModalContent, ModalOverlay, Text } from '@chakra-ui/react';
+import { Button, Flex, Input, Modal, ModalCloseButton, ModalContent, ModalOverlay, Text, useToast } from '@chakra-ui/react';
 import { ChatIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -16,9 +16,35 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
     const [ name, setName ] = useState( '' );
     const [ email, setEmail ] = useState( '' );
     const [ phone, setPhone ] = useState( '' );
+    const [ nameError, setNameError ] = useState(false);
+    const [ emailError, setEmailError ] = useState(false);
+    const [ phoneError, setPhoneError ] = useState(false);
     const navigate = useNavigate();
+    const toast = useToast();
 
     const submit = async () => {
+        // Validação dos campos
+        if (!name) {
+            setNameError(true);
+        }
+        if (!email) {
+            setEmailError(true);
+        }
+        if (!phone) {
+            setPhoneError(true);
+        }
+        if (!name || !email || !phone) {
+            toast({
+                title: "Erro",
+                description: "Por favor, preencha todos os campos antes de continuar.",
+                status: "error",
+                duration: 4000,
+                isClosable: true,
+                position: 'top-right'
+            });
+            return;
+        }
+
         const data = {
             name,
             email,
@@ -89,7 +115,12 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
                                 <Flex direction={ 'column' } gap={ '6px' }>
                                     <Text>Nome completo</Text>
                                     <Input
-                                        onChange={ ( event ) => setName( event.target.value ) }
+                                        isInvalid={nameError}
+                                        errorBorderColor="red.300"
+                                        onChange={ ( event ) => {
+                                            setName( event.target.value );
+                                            setNameError(false);
+                                        } }
                                     />
                                 </Flex>
                             </label>
@@ -98,7 +129,12 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
                                 <Flex direction={ 'column' } gap={ '6px' }>
                                     <Text>E-mail</Text>
                                     <Input
-                                        onChange={ ( event ) => setEmail( event.target.value ) }
+                                        isInvalid={emailError}
+                                        errorBorderColor="red.300"
+                                        onChange={ ( event ) => {
+                                            setEmail( event.target.value );
+                                            setEmailError(false);
+                                        } }
                                     />
                                 </Flex>
                             </label>
@@ -107,17 +143,15 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
                                 <Flex direction={ 'column' } gap={ '6px' }>
                                     <Text>Telefone</Text>
                                     <Input
-                                        onChange={ ( event ) => setPhone( event.target.value ) }
+                                        isInvalid={phoneError}
+                                        errorBorderColor="red.300"
+                                        onChange={ ( event ) => {
+                                            setPhone( event.target.value );
+                                            setPhoneError(false);
+                                        } }
                                     />
                                 </Flex>
                             </label>
-
-                            {/*<label>*/ }
-                            {/*    <Flex alignItems={'center'} gap={'6px'}>*/ }
-                            {/*        <Checkbox/>*/ }
-                            {/*        <Text>Estou de acordo com os termos de uso</Text>*/ }
-                            {/*    </Flex>*/ }
-                            {/*</label>*/ }
 
                             <Button
                                 onClick={ () => submit() }
