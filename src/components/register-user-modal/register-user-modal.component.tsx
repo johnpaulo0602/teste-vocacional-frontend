@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { axiosInstance } from '../../services/api-axios.service';
 import { AppResponse, ListResponse } from '../../interface/requests.inteface';
 import { ParticipantSession } from '../../interface/user.interface';
+import InputMask from 'react-input-mask';
 
 
 interface RegisterModalProps {
@@ -22,18 +23,23 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
     const navigate = useNavigate();
     const toast = useToast();
 
+    const validateEmail = (email: string) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    };
+
     const submit = async () => {
         // Validação dos campos
         if (!name) {
             setNameError(true);
         }
-        if (!email) {
+        if (!email || !validateEmail(email)) {
             setEmailError(true);
         }
         if (!phone) {
             setPhoneError(true);
         }
-        if (!name || !email || !phone) {
+        if (!name || !email || !validateEmail(email) || !phone) {
             toast({
                 title: "Erro",
                 description: "Por favor, preencha todos os campos antes de continuar.",
@@ -140,17 +146,25 @@ export function RegisterUserModalComponent(props: RegisterModalProps) {
                             </label>
 
                             <label>
-                                <Flex direction={ 'column' } gap={ '6px' }>
-                                    <Text>Telefone</Text>
-                                    <Input
-                                        isInvalid={phoneError}
-                                        errorBorderColor="red.300"
-                                        onChange={ ( event ) => {
-                                            setPhone( event.target.value );
-                                            setPhoneError(false);
-                                        } }
-                                    />
-                                </Flex>
+                            <Flex direction={'column'} gap={'6px'}>
+                                <Text>Telefone</Text>
+                                <InputMask
+                                    mask="(99) 99999-9999"
+                                    value={phone}
+                                    onChange={(event) => {
+                                        setPhone(event.target.value);
+                                        setPhoneError(false);
+                                    }}
+                                >
+                                    {(inputProps: any) => (
+                                        <Input
+                                            {...inputProps}
+                                            isInvalid={phoneError}
+                                            errorBorderColor="red.300"
+                                        />
+                                    )}
+                                </InputMask>
+                            </Flex>
                             </label>
 
                             <Button
